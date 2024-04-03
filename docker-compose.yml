@@ -8,6 +8,7 @@ services:
       - "5432:5432"
     volumes:
       - dspostgres:/var/lib/postgresql
+      - dspostgres-data:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=digitalschool
@@ -50,6 +51,9 @@ volumes:
   dspostgres:
     external:
       true
+  dspostgres-data:
+    external:
+      true
   dspgadmin:
     external:
       true
@@ -57,4 +61,5 @@ volumes:
 networks:
   default:
     external:
-      name: digitalschool
+      true
+    name: digitalschool
